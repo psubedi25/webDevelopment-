@@ -1,21 +1,26 @@
 <h2><?= esc($title) ?></h2>
 
 <p id="ajaxArticle"></p>
+
 <?php if ($news_list !== []): ?>
 
+	<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+
     <?php foreach ($news_list as $news_item): ?>
+		<div class="col">
 
-        <h3><?= esc($news_item['title']) ?></h3>
-
-        <div class="main">
-            <?= esc($news_item['body']) ?>
+		 <div class="card" style="width: 18rem;">
+         <div class="card-body">
+            <h5 class="card-title"><?= esc($news_item['title']) ?></h5>
+            <p class="card-text"><?= esc($news_item['body']) ?></p>
+            <a class="btn btn-primary" href="/news/<?= esc($news_item['slug'], 'url') ?>">view article</a>
         </div>
-        <p><a href="/news/<?= esc($news_item['slug'], 'url') ?>">View article</a></p>
-
+        </div>
         <p><button onclick="getData('<?= esc($news_item['slug'], 'url') ?>')">View article via Ajax</button></p>
-
+	</div>
 
     <?php endforeach ?>
+	</div>
 
 <?php else: ?>
 
