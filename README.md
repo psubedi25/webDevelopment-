@@ -71,3 +71,4 @@ Additionally, make sure that the following extensions are enabled in your PHP:
 # test123
 # test123
 # Workshop
+# Workshop
